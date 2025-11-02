@@ -172,34 +172,45 @@
             // Adiciona classes de "carregando/desativado"
             button.classList.add('opacity-75', 'cursor-wait');
             
-            // Remove o 'href' para impedir cliques repetidos no botão animado
-            button.removeAttribute('href');
-            
             // Mostra o link de fallback
             if (fallback) {
                 fallback.style.display = 'block';
             }
+
+            // *** A CORREÇÃO ESTÁ AQUI ***
+            // Espera 500ms ANTES de remover o href.
+            // Isso dá tempo para o clique do usuário iniciar o download
+            // ANTES do botão ser "desativado" pelo script.
+            setTimeout(() => {
+                if(button) {
+                    button.removeAttribute('href');
+                }
+            }, 500); // Meio segundo de delay
         }
 
         // 1. LÓGICA PARA O CLIQUE MANUAL
         if (mainButton) {
             mainButton.addEventListener('click', (e) => {
-                // Previne o comportamento padrão SE o href ainda existir (só por segurança)
+                // Se o botão já foi clicado (href removido), previne novos cliques
                 if (!mainButton.hasAttribute('href')) {
                     e.preventDefault();
                     return;
                 }
-                // Anima o botão
+                // Se for o primeiro clique, anima o botão.
+                // O download vai iniciar normalmente pelo href.
                 animateButton(mainButton, mainFallback);
             });
         }
 
         if (premiumButton) {
             premiumButton.addEventListener('click', (e) => {
+                // Se o botão já foi clicado (href removido), previne novos cliques
                 if (!premiumButton.hasAttribute('href')) {
                     e.preventDefault();
                     return;
                 }
+                // Se for o primeiro clique, anima o botão.
+                // O download vai iniciar normalmente pelo href.
                 animateButton(premiumButton, premiumFallback);
             });
         }
@@ -215,7 +226,8 @@
                 animateButton(mainButton, mainFallback, 'Iniciando download...');
                 
                 // Inicia o download automaticamente
-                window.location.href = downloadURL;
+                // (Isso funciona pois a animação só remove o href depois de 500ms)
+                mainButton.click(); 
             }
         });
     </script>
