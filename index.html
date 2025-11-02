@@ -37,14 +37,21 @@
             Eva é o seu assistente pessoal para controle de gastos, receitas e metas. Tenha uma visão clara de para onde seu dinheiro está indo.
         </p>
         
-        <a href="./eva-assistente.apk" 
-           download="eva-assistente-financeira.apk"
-           class="inline-flex items-center bg-amber-400 text-gray-900 font-bold py-3 px-8 rounded-full text-lg hover:bg-amber-300 transition-transform hover:scale-105 shadow-lg">
+        <a id="btn-download-main"
+           href="https://github.com/eduardoramon909/site-eva-app/releases/download/6.0.0/eva-assistente.apk" 
+           class="inline-flex items-center bg-amber-400 text-gray-900 font-bold py-3 px-8 rounded-full text-lg hover:bg-amber-300 transition-all duration-300 hover:scale-105 shadow-lg">
            <svg class="h-6 w-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
              <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
            </svg>
-            Baixar APK (Android)
+           <span class="button-text">Baixar APK (Android)</span>
         </a>
+
+        <p id="fallback-main" class="mt-4 text-sm text-gray-400" style="display: none;">
+            Se o download não iniciar automaticamente, 
+            <a href="https://github.com/eduardoramon909/site-eva-app/releases/download/6.0.0/eva-assistente.apk" class="underline text-amber-400 font-medium hover:text-amber-300">
+                clique aqui
+            </a>.
+        </p>
     </main>
     
     <section class="container mx-auto px-6 pb-20 -mt-10">
@@ -63,7 +70,7 @@
     <section class="container mx-auto px-6 py-20">
         <div class="max-w-4xl mx-auto">
             <div class="bg-gray-800 p-4 rounded-xl shadow-2xl">
-                <img src="https://via.placeholder.com/800x450/111827/4b5563?text=Screenshot+do+App+Eva" alt="Screenshot do app Eva Assistente Financeira" class="rounded-lg w-full">
+                <img src="./eva-screenshot.png" alt="Screenshot do app Eva Assistente Financeira" class="rounded-lg w-full">
             </div>
         </div>
     </section>
@@ -106,11 +113,18 @@
                     
                     <p class="text-gray-400 mb-6">Assinatura gerenciada diretamente no aplicativo. Baixe o app e assine o Premium para ter acesso a todos os recursos.</p>
                     
-                    <a href="./eva-assistente.apk" 
-                       download="eva-assistente-financeira.apk"
-                       class="inline-block bg-cyan-500 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-cyan-400 transition-transform hover:scale-105 shadow-lg">
-                        Baixar e Assinar
+                    <a id="btn-download-premium"
+                       href="https://github.com/eduardoramon909/site-eva-app/releases/download/6.0.0/eva-assistente.apk" 
+                       class="inline-flex items-center bg-cyan-500 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-lg">
+                       <span class="button-text">Baixar e Assinar</span>
                     </a>
+
+                    <p id="fallback-premium" class="mt-4 text-sm text-gray-300" style="display: none;">
+                        Se o download não iniciar automaticamente, 
+                        <a href="https://github.com/eduardoramon909/site-eva-app/releases/download/6.0.0/eva-assistente.apk" class="underline text-cyan-400 font-medium hover:text-cyan-300">
+                            clique aqui
+                        </a>.
+                    </p>
                 </div>
 
             </div>
@@ -122,11 +136,89 @@
             
             <a href="./termos.html" class="hover:text-gray-300 transition-colors">Termos de Uso</a>
             <a href="./privacidade.html" class="hover:text-gray-300 transition-colors">Política de Privacidade</a>
-            
             <a href="mailto:edcompanyadm@gmail.com" class="hover:text-gray-300 transition-colors">Suporte</a>
         </div>
         <p>&copy; 2025 Ed Company. Todos os direitos reservados.</p>
     </footer>
+
+
+    <script>
+        // Define o link de download único
+        const downloadURL = 'https://github.com/eduardoramon909/site-eva-app/releases/download/6.0.0/eva-assistente.apk';
+
+        // Define o ícone de carregamento (Spinner do Tailwind)
+        const loadingSpinner = `
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+        `;
+
+        // Pega os elementos da página
+        const mainButton = document.getElementById('btn-download-main');
+        const premiumButton = document.getElementById('btn-download-premium');
+        const mainFallback = document.getElementById('fallback-main');
+        const premiumFallback = document.getElementById('fallback-premium');
+
+        // Função reutilizável para animar o botão
+        function animateButton(button, fallback, text = 'Baixando...') {
+            if (!button) return; // Se o botão não existir, sai
+
+            const textElement = button.querySelector('.button-text');
+            
+            // Adiciona o spinner e atualiza o texto
+            button.innerHTML = loadingSpinner + text;
+            
+            // Adiciona classes de "carregando/desativado"
+            button.classList.add('opacity-75', 'cursor-wait');
+            
+            // Remove o 'href' para impedir cliques repetidos no botão animado
+            button.removeAttribute('href');
+            
+            // Mostra o link de fallback
+            if (fallback) {
+                fallback.style.display = 'block';
+            }
+        }
+
+        // 1. LÓGICA PARA O CLIQUE MANUAL
+        if (mainButton) {
+            mainButton.addEventListener('click', (e) => {
+                // Previne o comportamento padrão SE o href ainda existir (só por segurança)
+                if (!mainButton.hasAttribute('href')) {
+                    e.preventDefault();
+                    return;
+                }
+                // Anima o botão
+                animateButton(mainButton, mainFallback);
+            });
+        }
+
+        if (premiumButton) {
+            premiumButton.addEventListener('click', (e) => {
+                if (!premiumButton.hasAttribute('href')) {
+                    e.preventDefault();
+                    return;
+                }
+                animateButton(premiumButton, premiumFallback);
+            });
+        }
+
+        // 2. LÓGICA PARA O DOWNLOAD AUTOMÁTICO (AO CARREGAR A PÁGINA)
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Verifica se a URL tem ?auto=true
+            if (urlParams.get('auto') === 'true') {
+                
+                // Dispara a animação no botão PRINCIPAL
+                animateButton(mainButton, mainFallback, 'Iniciando download...');
+                
+                // Inicia o download automaticamente
+                window.location.href = downloadURL;
+            }
+        });
+    </script>
 
 </body>
 </html>
