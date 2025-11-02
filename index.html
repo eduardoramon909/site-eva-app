@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eva - Assistente Financeira</title>
-    <!-- Carrega o Tailwind CSS -->
+    <title>Eva - Assistente Financeira (Download Direto)</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonte Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,7 +16,6 @@
 </head>
 <body class="bg-gray-900 text-white antialiased">
 
-    <!-- Header -->
     <header class="container mx-auto px-6 py-6">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -27,11 +24,11 @@
                 </svg>
                 <span class="text-2xl font-bold text-white">Eva Assistente Financeira</span>
             </div>
+            
             <span class="text-sm text-gray-400">por Ed Company</span>
         </div>
     </header>
 
-    <!-- Seção Principal -->
     <main class="container mx-auto px-6 py-20 text-center">
         <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
             Organize suas finanças de um jeito simples.
@@ -39,12 +36,38 @@
         <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
             Eva é o seu assistente pessoal para controle de gastos, receitas e metas. Tenha uma visão clara de para onde seu dinheiro está indo.
         </p>
-        <div class="inline-block bg-amber-400 text-gray-900 font-bold py-3 px-8 rounded-full text-lg">
-            Disponível para Android
-        </div>
+        
+        <a href="./eva-assistente.apk" 
+           download="eva-assistente-financeira.apk"
+           class="inline-flex items-center bg-amber-400 text-gray-900 font-bold py-3 px-8 rounded-full text-lg hover:bg-amber-300 transition-transform hover:scale-105 shadow-lg">
+           <svg class="h-6 w-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+            Baixar APK (Android)
+        </a>
     </main>
+    
+    <section class="container mx-auto px-6 pb-20 -mt-10">
+         <div class="max-w-lg mx-auto bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700">
+            <h3 class="text-2xl font-bold text-center mb-4 text-amber-400">Como Instalar o APK</h3>
+            <ol class="list-decimal list-inside space-y-3 text-gray-300">
+                <li>Clique no botão acima para baixar o arquivo `.apk`.</li>
+                <li>Após o download, abra o arquivo (geralmente na sua barra de notificações).</li>
+                <li>O Android solicitará permissão para instalar de "fontes desconhecidas".</li>
+                <li>Clique em **"Permitir"** ou **"Configurações"** e ative a permissão para o seu navegador.</li>
+                <li>Volte e conclua a instalação. É 100% seguro!</li>
+            </ol>
+         </div>
+    </section>
 
-    <!-- Seção do Premium (O que o Stripe quer saber) -->
+    <section class="container mx-auto px-6 py-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gray-800 p-4 rounded-xl shadow-2xl">
+                <img src="https://via.placeholder.com/800x450/111827/4b5563?text=Screenshot+do+App+Eva" alt="Screenshot do app Eva Assistente Financeira" class="rounded-lg w-full">
+            </div>
+        </div>
+    </section>
+
     <section class="bg-gray-800 py-20">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center">
@@ -54,7 +77,6 @@
                 </p>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Benefício 1 -->
                     <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
                         <svg class="h-12 w-12 text-cyan-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12M3.75 3.75h16.5M3.75 12h16.5m-16.5 4.5h16.5M12 16.5v4.875A2.625 2.625 0 0 0 14.625 24h.001A2.625 2.625 0 0 0 17.25 21.375V16.5M12 16.5h-1.875A2.625 2.625 0 0 1 7.5 13.875v-1.5A2.625 2.625 0 0 1 10.125 9.75h3.75A2.625 2.625 0 0 1 16.5 12.375v1.5A2.625 2.625 0 0 1 13.875 16.5H12Z" />
@@ -62,7 +84,6 @@
                         <h3 class="text-xl font-bold mb-2">Gráficos Detalhados</h3>
                         <p class="text-gray-400">Visualize suas finanças com gráficos interativos de despesas, receitas e balanço mensal.</p>
                     </div>
-                    <!-- Benefício 2 -->
                     <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
                         <svg class="h-12 w-12 text-cyan-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
@@ -71,22 +92,40 @@
                         <h3 class="text-xl font-bold mb-2">Categorias Ilimitadas</h3>
                         <p class="text-gray-400">Crie e gerencie quantas categorias e subcategorias você precisar para organizar suas transações.</p>
                     </div>
-                    <!-- Benefício 3 -->
                     <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
                         <svg class="h-12 w-12 text-cyan-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 0 1 2.25 12c0-.83.112-1.631.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 0 1 2.25 12c0-.83.112-1.631.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
                         </svg>
                         <h3 class="text-xl font-bold mb-2">Sem Anúncios</h3>
                         <p class="text-gray-400">Tenha uma experiência de uso contínua e focada, sem nenhuma interrupção por anúncios.</p>
                     </div>
                 </div>
+
+                <div class="mt-12 bg-gray-700 max-w-lg mx-auto p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-white mb-4">Desbloqueie todo o potencial</h3>
+                    
+                    <p class="text-gray-400 mb-6">Assinatura gerenciada diretamente no aplicativo. Baixe o app e assine o Premium para ter acesso a todos os recursos.</p>
+                    
+                    <a href="./eva-assistente.apk" 
+                       download="eva-assistente-financeira.apk"
+                       class="inline-block bg-cyan-500 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-cyan-400 transition-transform hover:scale-105 shadow-lg">
+                        Baixar e Assinar
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="container mx-auto px-6 py-10 text-center">
-        <p class="text-gray-500">&copy; 2025 Ed Company. Todos os direitos reservados.</p>
+    <footer class="container mx-auto px-6 py-10 text-center text-gray-500">
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-4">
+            
+            <a href="./termos.html" class="hover:text-gray-300 transition-colors">Termos de Uso</a>
+            <a href="./privacidade.html" class="hover:text-gray-300 transition-colors">Política de Privacidade</a>
+            
+            <a href="mailto:edcompanyadm@gmail.com" class="hover:text-gray-300 transition-colors">Suporte</a>
+        </div>
+        <p>&copy; 2025 Ed Company. Todos os direitos reservados.</p>
     </footer>
 
 </body>
